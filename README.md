@@ -1,2 +1,2 @@
 # gentoo-overlay
-Custom Gentoo packages
+Custom Gentoo ebuilds
