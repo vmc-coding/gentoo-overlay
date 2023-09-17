@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit linux-mod git-r3
 
@@ -49,6 +49,15 @@ src_unpack() {
 
 	git-r3_fetch ${GIT_REPO_LINUX_MEDIA} refs/heads/${GIT_LINUX_MEDIA_BRANCH}
 	git-r3_checkout ${GIT_REPO_LINUX_MEDIA} "${WORKDIR}/media"
+}
+
+src_prepare() {
+	default_src_prepare
+	# This is a temp fix for linux >=6.5 and should be fixed in the media_build repo
+	if kernel_is -ge 6 5; then
+		cd "${WORKDIR}/media_build" || eerror "Failed to change into dir ${WORKDIR}/media_build"
+		eapply "${FILESDIR}/fix-get-user-pages.patch"
+	fi
 }
 
 src_configure() {
