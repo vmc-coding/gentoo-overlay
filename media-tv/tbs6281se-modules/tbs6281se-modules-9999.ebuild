@@ -51,15 +51,6 @@ src_unpack() {
 	git-r3_checkout ${GIT_REPO_LINUX_MEDIA} "${WORKDIR}/media"
 }
 
-src_prepare() {
-	default_src_prepare
-	# This is a temp fix for linux >=6.5 and should be fixed in the media_build repo
-	if kernel_is -ge 6 5; then
-		cd "${WORKDIR}/media_build" || eerror "Failed to change into dir ${WORKDIR}/media_build"
-		eapply "${FILESDIR}/fix-get-user-pages.patch"
-	fi
-}
-
 src_configure() {
 	set_arch_to_kernel
 	emake dir DIR=../media
