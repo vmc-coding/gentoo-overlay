@@ -17,19 +17,21 @@ REQUIRED_USE="?? ( qt5 qt6 )"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-libs/pugixml:=
+	dev-libs/pugixml
 	qt5? (
-		dev-qt/qtcharts:5=
-		dev-qt/qtcore:5=
-		dev-qt/qtnetwork:5=
+		dev-qt/qtcharts:5
+		dev-qt/qtcore:5
+		dev-qt/qtnetwork:5
 	)
-	qt6? ( dev-qt/qtbase:6=[charts,network] )
+	qt6? (
+		dev-qt/qtbase:6[network]
+		dev-qt/qtcharts:6
+	)
 "
 DEPEND="
 	${RDEPEND}
 	test? (
 		qt5? ( dev-qt/qttest:5 )
-		qt6? ( dev-qt/qtbase:6[test] )
 	)
 "
 
