@@ -19,5 +19,4 @@ You'll also need the [firmware](http://www.tbsdtv.com/download/document/linux/tb
 For details see:<br>
 [Wiki from LinuxTV](https://linuxtv.org/wiki/index.php/TBS6281) <br>
 [Wiki from vendor](https://github.com/tbsdtv/linux_media/wiki)
-* woinc:
-[woinc](https://github.com/vmc-coding/woinc) - an alternative to boinccmd and boincmgr
+* [woinc](https://github.com/vmc-coding/woinc) - an alternative to boinccmd and boincmgr
